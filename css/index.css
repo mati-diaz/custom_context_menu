@@ -1,0 +1,87 @@
+body {
+    color: rgb(224, 224, 224);
+    background-color: rgb(29, 29, 29);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 { 
+    text-transform: uppercase;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    margin: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 900;
+    text-align: center;
+    font-size: 90px;
+    line-height: 1;
+    user-select: none;
+    color: rgb(50, 50, 50);
+    text-shadow: 0px 0px 8px rgb(255, 255, 255);
+    text-shadow: 0px 3px 3px rgba(176, 176, 176, 0.5),0px -1px 1px rgba(129, 129, 129, 0.3);
+}
+
+.c-menu {
+    background-color: rgb(29, 29, 29);
+    /* border: 1px solid rgb(110, 110, 110); */
+    box-shadow: 0px 0px 7px rgb(68, 68, 68);
+    box-shadow: 1;
+    border-radius: 8px;
+    width: min-content;
+    min-width: 500px;
+    padding: 2px;
+    position: absolute;
+    animation: menuAppear 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes menuAppear {
+    0% {
+        transform: opacity(0);
+    }
+    100% {
+        transform: opacity(2);
+    }
+}
+
+.c-menu-item {
+    display: flex;
+    padding: 8px 20px;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid rgb(62, 62, 62);
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.c-menu-item:first-of-type {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.c-menu-item:last-of-type {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: none;
+}
+
+.c-menu-item:hover {
+    background-color: rgb(24, 132, 255);
+}
+
+/* .c-menu-item-icon {
+
+} */
+
+.c-menu-item-icon img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+    user-select: none;
+}
+
+.c-menu-item-text {
+    user-select: none;
+    white-space: nowrap;
+}
