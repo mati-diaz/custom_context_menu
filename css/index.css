@@ -1,10 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     color: rgb(224, 224, 224);
     background-color: rgb(29, 29, 29);
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 { 
+h1 {
     text-transform: uppercase;
     width: 100%;
     position: absolute;
@@ -18,18 +23,20 @@ h1 {
     line-height: 1;
     user-select: none;
     color: rgb(50, 50, 50);
-    text-shadow: 0px 0px 8px rgb(255, 255, 255);
-    text-shadow: 0px 3px 3px rgba(176, 176, 176, 0.5),0px -1px 1px rgba(129, 129, 129, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* text-shadow: 0px 0px 8px rgb(255, 255, 255); */
+    /* text-shadow: 0px 3px 3px rgba(176, 176, 176, 0.5),0px -1px 1px rgba(129, 129, 129, 0.3); */
 }
 
 .c-menu {
     background-color: rgb(29, 29, 29);
-    /* border: 1px solid rgb(110, 110, 110); */
-    box-shadow: 0px 0px 7px rgb(68, 68, 68);
+    box-shadow: 0px 0px 5px rgb(68, 68, 68);
     box-shadow: 1;
-    border-radius: 8px;
+    border-radius: 5x;
     width: min-content;
-    min-width: 500px;
     padding: 2px;
     position: absolute;
     animation: menuAppear 5s;
@@ -69,10 +76,6 @@ h1 {
 .c-menu-item:hover {
     background-color: rgb(24, 132, 255);
 }
-
-/* .c-menu-item-icon {
-
-} */
 
 .c-menu-item-icon img {
     width: 20px;

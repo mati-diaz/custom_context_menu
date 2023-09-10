@@ -4,7 +4,7 @@ class ContextMenu {
         this.menu.classList.add("c-menu");
 
         items.forEach(item => {
-            this.menu.appendChild(this.createMenuItem(item.icon, item.text));
+            this.menu.appendChild(this.createMenuItem(item));
         });
     }
 
@@ -16,7 +16,7 @@ class ContextMenu {
         icon.classList.add("c-menu-item-icon");
 
         const iconImg = document.createElement("img");
-        iconImg.src = `./assets/img/${item.icon}.svg`;
+        iconImg.src = `../assets/img/${item.icon}`;
         iconImg.alt = "icon test";
 
         icon.appendChild(iconImg);
@@ -32,42 +32,49 @@ class ContextMenu {
     }
 }
 
-const contextMenu = new ContextMenu([
+const { menu } = new ContextMenu([
     {
-        icon: "github",
-        text: "Change Background Color"
+        icon: "github.svg",
+        text: "Test Item 1"
     },
     {
-        icon: "github",
-        text: "Change Background Color 2"
+        icon: "github.svg",
+        text: "Test Item 2"
+    },
+    {
+        icon: "github.svg",
+        text: "Test Item 3"
+    },
+    {
+        icon: "github.svg",
+        text: "Test Item 4"
+    },
+    {
+        icon: "github.svg",
+        text: "Test Item 5"
+    },
+    {
+        icon: "github.svg",
+        text: "Test Item 6"
     }
 ]);
 
-console.log(contextMenu.menu);
+document.body.appendChild(menu);
 
-// document.appendChild(contextMenu.menu);
+const menuWidth = menu.offsetWidth;
+const menuHeight = menu.offsetHeight;
 
-// const contextMenu = `
-//     <div class="c-menu">
-//         <div class="c-menu-item">
-//             <div class="c-menu-item-icon">
-//                 <img src="./assets/img/github.svg" alt="icon test">
-//             </div>
-//             <div class="c-menu-item-text">Change Background Color</div>
-//         </div>
-//     </div>
-// `;
-
-const menuWidth = contextMenu.offsetWidth;
-const menuHeight = contextMenu.offsetHeight;
+menu.style.display = "none";
 
 document.addEventListener("contextmenu", function(event) {
     event.preventDefault();
 
-    contextMenu.style.top = "inherit";
-    contextMenu.style.bottom = "inherit";
-    contextMenu.style.left = "inherit";
-    contextMenu.style.right = "inherit";
+    menu.style.display = "block";
+
+    menu.style.top = "inherit";
+    menu.style.bottom = "inherit";
+    menu.style.left = "inherit";
+    menu.style.right = "inherit";
 
     const cursorX = event.clientX;
     const cursorY = event.clientY;
@@ -75,17 +82,17 @@ document.addEventListener("contextmenu", function(event) {
     const windowHeight = window.innerHeight;
 
     if (cursorX + menuWidth > windowWidth) {
-        contextMenu.style.right = (windowWidth - cursorX) + "px";
+        menu.style.right = (windowWidth - cursorX) + "px";
     } else {
-        contextMenu.style.left = cursorX + "px";
+        menu.style.left = cursorX + "px";
     }
     if (cursorY + menuHeight > windowHeight) {
-        contextMenu.style.bottom = (windowHeight - cursorY) + "px";
+        menu.style.bottom = (windowHeight - cursorY) + "px";
     } else {
-        contextMenu.style.top = cursorY + "px";
+        menu.style.top = cursorY + "px";
     }
 });
 
 document.addEventListener("click", () => {
-    contextMenu.style.display = "none";
+    menu.style.display = "none";
 });
